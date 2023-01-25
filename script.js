@@ -4,6 +4,9 @@ var startButton = document.querySelector("#start");
 var h1El = document.querySelector("h1");
 var pEl = document.querySelector("p");
 var resultEl = document.querySelector(".result");
+var infoEl = document.querySelector(".info");
+//var initialInputEl = document.querySelector("#msg");
+//var sbmBtnEl = document.querySelector("#save");
 var secondsLeft = 100;
 timeEl.textContent = "Time: 0" ;
 
@@ -13,7 +16,7 @@ var answer_1 = document.createElement("li");
 var answer_2 = document.createElement("li");
 var answer_3 = document.createElement("li");
 var answer_4 = document.createElement("li");
-//var result = document.createElement("p");
+
 
 function setTime() {
   // Sets interval in variable
@@ -106,27 +109,36 @@ function Question4Result(){
   answer_4.addEventListener("click", function(){
     resultEl.textContent = "Correct!";
      document.body.appendChild(resultEl);
-     setQuestion2();
+     resultConclude()
   })
   answer_1.addEventListener("click", function(){
      resultEl.textContent = "Wrong!";
      document.body.appendChild(resultEl);
-     setQuestion2();
+     resultConclude()
   })
   answer_2.addEventListener("click", function(){
      resultEl.textContent = "Wrong!";
      document.body.appendChild(resultEl);
-     setQuestion2();
+     resultConclude()
   })
   answer_3.addEventListener("click", function(){
      resultEl.textContent = "Wrong!";
      document.body.appendChild(resultEl);
-     setQuestion2();
+     resultConclude()
   })
 }
 
 function resultConclude(){
-  
+  question.remove();
+  answer_1.remove();
+  answer_2.remove();
+  answer_3.remove();
+  answer_4.remove();
+  resultEl.remove();
+  h1El.textContent = "ALL DONE!"
+  pEl.textContent = "Your fnal score is "
+  document.body.appendChild(h1El);
+  document.body.appendChild(pEl);
 }
 function setQuestion1(){
   quizStart();
@@ -141,6 +153,8 @@ function setQuestion1(){
   document.body.appendChild(answer_3);
   document.body.appendChild(answer_4);
   Question1Result();
+  
+  infoEl.setAttribute("display:none;");
 }
 
 function setQuestion2(){
@@ -173,18 +187,17 @@ function setQuestion3(){
 }
 function setQuestion4(){
   quizStart();
-  question.textContent = "asdryhftgjk";
-  answer_1.textContent = "xfjcvhjcvhery";
-  answer_2.textContent = "sdhxhxc";
-  answer_3.textContent = "cghhxcgjxghjxcgh";
-  answer_4.textContent = "xghxgchjxcgjxj";
+  question.textContent = "1111111";
+  answer_1.textContent = "111111";
+  answer_2.textContent = "111111";
+  answer_3.textContent = "11111";
+  answer_4.textContent = "111111";
   document.body.appendChild(question);
   document.body.appendChild(answer_1);
   document.body.appendChild(answer_2);
   document.body.appendChild(answer_3);
   document.body.appendChild(answer_4);
   Question4Result();
-  resultConclude();
 }
 startButton.addEventListener("click", function() {
   setTime();
